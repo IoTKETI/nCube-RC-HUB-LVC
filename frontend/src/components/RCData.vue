@@ -748,8 +748,8 @@ export default {
             return (val - this.SBUS2RC(0)) / (this.SBUS2RC(250) - this.SBUS2RC(0)) * 100;
         },
         receiveFromRC(hex_content_each) {
-            let hex_content = hex_content_each.toString('hex')
-            let received_rdData = hex_content.slice(2, hex_content.length)
+            let received_rdData = hex_content_each.toString('hex')
+            // let received_rdData = hex_content.slice(2, hex_content.length)
 
             this.ch_raw.ch1_raw = parseInt(received_rdData.substring(2, 4), 16)
             this.ch_raw.ch1_raw = this.SBUS2RC(this.ch_raw.ch1_raw)
