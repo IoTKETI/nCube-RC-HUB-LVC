@@ -168,7 +168,7 @@ function rcPortData(message) {
             // console.log(RCData)
 
             /*  send to local topic */
-            local_mqtt_client.publish(mobius_pub_rc_topic, Buffer.from(RCData, 'hex'), ()=>{
+            local_mqtt_client.publish(mobius_pub_rc_topic, Buffer.from(RCData, 'hex'), () => {
                 console.log(mobius_pub_rc_topic)
             });
 
