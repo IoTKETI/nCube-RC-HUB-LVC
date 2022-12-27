@@ -5,6 +5,8 @@
 const mqtt = require('mqtt')
 const {nanoid} = require('nanoid')
 const {SerialPort} = require("serialport")
+const fs = require("fs")
+const axios = require("axios")
 
 let rcPort = null
 let rcPort_info = {
@@ -13,19 +15,63 @@ let rcPort_info = {
 }
 
 let local_mqtt_client = null
-let pub_local_topic = '/RC/data'
 let gcs_sub_rc_res_topic = '/RF/RC/res'
 
 let RCstrFromGCS = ''
 let RCstrFromGCSLength = 0
 
-console.log('======================================')
-console.log('\t\tRC Start\t\t')
-console.log('======================================')
+let mobius_pub_rc_topic = '/Mobius/'
 
-local_mqtt_connect('127.0.0.1')
+let my_gcs_name = ''
 
-rcPortOpening()
+let flight = {};
+try {
+    flight = JSON.parse(fs.readFileSync('../flight.json', 'utf8'))
+} catch (e) {
+    console.log('can not find [ ../flight.json ] file')
+    flight.approval_gcs = "LVC"
+    flight.flight = "Dione"
+
+    fs.writeFileSync('../flight.json', JSON.stringify(flight, null, 4), 'utf8')
+}
+
+retrieve_approval(flight)
+
+function retrieve_approval(approval_info) {
+    var config = {
+        method: 'get',
+        url: 'http://127.0.0.1:7579/Mobius/' + approval_info.approval_gcs + '/approval/' + approval_info.flight + '/la',
+        headers: {
+            'Accept': 'application/json',
+            'X-M2M-RI': '12345',
+            'X-M2M-Origin': 'SOrigin'
+        }
+    };
+
+    axios(config)
+        .then(function (response) {
+            if (response.status === 200) {
+                if (response.data.hasOwnProperty('m2m:cin')) {
+                    if (response.data['m2m:cin'].hasOwnProperty('con')) {
+                        if (response.data['m2m:cin'].con.hasOwnProperty('gcs')) {
+                            my_gcs_name = response.data['m2m:cin'].con.gcs
+                        } else {
+                            my_gcs_name = 'KETI_LVC'
+                        }
+                        mobius_pub_rc_topic = mobius_pub_rc_topic + my_gcs_name + '/RC_Data'
+                    }
+                }
+            }
+
+            local_mqtt_connect('127.0.0.1')
+
+            rcPortOpening()
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+}
 
 function local_mqtt_connect(serverip) {
     if (local_mqtt_client === null) {
@@ -67,6 +113,7 @@ function local_mqtt_connect(serverip) {
 
         local_mqtt_client.on('error', function (err) {
             console.log('[local_RC_mqtt] error - ' + err.message)
+            local_mqtt_client = null
             local_mqtt_connect(serverip)
         })
     }
@@ -118,10 +165,12 @@ function rcPortData(message) {
             let RCData = RCstrFromGCS.substring(0, RC_LENGTH)
             /* add sequence */
             // RCData = (sequence.toString(16).padStart(2, '0')) + RCData;
-            console.log(RCData)
+            // console.log(RCData)
 
             /*  send to local topic */
-            local_mqtt_client.publish(pub_local_topic, Buffer.from(RCData, 'hex'));
+            local_mqtt_client.publish(mobius_pub_rc_topic, Buffer.from(RCData, 'hex'), ()=>{
+                console.log(mobius_pub_rc_topic)
+            });
 
             /* sequence update */
             // sequence++;
