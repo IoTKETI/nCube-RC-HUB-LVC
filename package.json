@@ -4,10 +4,7 @@
     "description": "",
     "main": "RC.js",
     "scripts": {
-        "rc": "node rc_hub.js",
-        "rf": "node rc_rf.js",
-        "lte": "node rc_lte.js",
-        "start": "concurrently \"npm run rc\" \"npm run rf\" \"npm run lte\""
+        "start": "pm2 start rc_hub.js && pm2 start rc_rf.js && pm2 save"
     },
     "author": "Wonseok Jung, Autonomous IoT Research Center, KETI",
     "license": "ISC",
