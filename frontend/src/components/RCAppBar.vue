@@ -8,18 +8,18 @@
             </v-toolbar-title>
 
             <v-row no-gutters class="text-right justify-center mt-1">
-<!--                <v-col cols="2">-->
-<!--                    <v-text-field-->
-<!--                        dense dark hide-details outlined-->
-<!--                        ref="gcs"-->
-<!--                        v-model="gcs" :rules="gcs_rule"-->
-<!--                        placeholder="KETI_MUV"-->
-<!--                        label="GCS*"-->
-<!--                        style="font-size: 20px;"-->
-<!--                        required-->
-<!--                        :disabled="MOBIUS_CONNECTION_CONNECTED"-->
-<!--                    ></v-text-field>-->
-<!--                </v-col>-->
+                <v-col cols="2">
+                    <v-text-field
+                        dense dark hide-details outlined
+                        ref="gcs"
+                        v-model="gcs" :rules="gcs_rule"
+                        placeholder="KETI_MUV"
+                        label="GCS*"
+                        style="font-size: 20px;"
+                        required
+                        :disabled="MOBIUS_CONNECTION_CONNECTED"
+                    ></v-text-field>
+                </v-col>
                 <!--                <v-col cols="2">-->
                 <!--                    &lt;!&ndash;                            <v-text-field hide-details ref="host" v-model="host" :rules="host_rule" placeholder="203.253.128.177" label="Host*" required></v-text-field>&ndash;&gt;-->
                 <!--                    <v-text-field-->

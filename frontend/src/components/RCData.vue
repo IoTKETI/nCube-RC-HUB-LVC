@@ -619,7 +619,7 @@ export default {
 
                     this.$store.state.client.publish('/RC/monitor/gcs', this.$store.state.VUE_APP_MOBIUS_GCS)
 
-                    let topic = '/RC/data'
+                    let topic = '/Mobius/' + this.$store.state.VUE_APP_MOBIUS_GCS + '/RC_Data'
                     let qos = 0
                     this.$store.state.client.unsubscribe(topic)
                     this.$store.state.client.subscribe(topic, {qos}, (error, res) => {
@@ -685,10 +685,10 @@ export default {
                     console.log('[Local] Connection failed', error)
                 })
                 this.$store.state.client.on('message', (topic, message) => {
-                    // console.log(`Received message ${message.toString()} from topic ${topic}`)
+                    // console.log(`Received message ${message.toString('hex')} from topic ${topic}`)
                     let topic_arr = topic.split('/')
 
-                    if (topic_arr[2] === 'data') {
+                    if (topic_arr[3] === 'RC_Data') {
                         this.receiveFromRC(message)
                     }
                 })

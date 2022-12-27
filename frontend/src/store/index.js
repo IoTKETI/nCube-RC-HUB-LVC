@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         VUE_APP_MOBIUS_HOST: 'localhost',
-        VUE_APP_MOBIUS_GCS: 'KETI_MUV',
+        VUE_APP_MOBIUS_GCS: 'KETI_LVC',
         VUE_APP_MOBIUS_RC: 'KETI_RC',
 
         client: {
