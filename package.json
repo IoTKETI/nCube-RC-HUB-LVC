@@ -1,0 +1,24 @@
+{
+    "name": "nCube-RC-HUB-LVC",
+    "version": "1.0.0",
+    "description": "",
+    "main": "RC.js",
+    "scripts": {
+        "rc": "node rc_hub.js",
+        "rf": "node rc_rf.js",
+        "lte": "node rc_lte.js",
+        "start": "concurrently \"npm run rc\" \"npm run rf\" \"npm run lte\""
+    },
+    "author": "Wonseok Jung, Autonomous IoT Research Center, KETI",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^1.2.1",
+        "mqtt": "^4.3.7",
+        "nanoid": "^3.2.0",
+        "serialport": "^10.4.0"
+    },
+    "repository": {
+        "type": "github",
+        "url": "https://github.com/IoTKETI/nCube-RC-HUB-LVC.git"
+    }
+}
