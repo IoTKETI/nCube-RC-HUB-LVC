@@ -4,7 +4,7 @@
     "description": "",
     "main": "RC.js",
     "scripts": {
-        "start": "pm2 start rc_hub.js && pm2 start rc_rf.js && pm2 save"
+        "start": "pm2 start rc_hub.js && pm2 save"
     },
     "author": "Wonseok Jung, Autonomous IoT Research Center, KETI",
     "license": "ISC",
