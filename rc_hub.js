@@ -41,7 +41,7 @@ try {
 retrieve_approval(flight)
 
 function retrieve_approval(approval_info) {
-    my_gcs_name = approval_info.approval_gcs
+    my_gcs_name = approval_info.gcs
 
     mobius_pub_rc_topic = mobius_pub_rc_topic + my_gcs_name + '/RC_Data'
 
