@@ -29,8 +29,11 @@ try {
     flight = JSON.parse(fs.readFileSync('../flight.json', 'utf8'))
 } catch (e) {
     console.log('can not find [ ../flight.json ] file')
-    flight.approval_gcs = "LVC"
-    flight.flight = "Dione"
+    flight.host = '127.0.0.1';
+    flight.gcs = 'KETI_LVC';
+    flight.drone_name = "LVC_Drone";
+    flight.sysid = 251;
+    flight.simul = "on";
 
     fs.writeFileSync('../flight.json', JSON.stringify(flight, null, 4), 'utf8')
 }
@@ -38,39 +41,13 @@ try {
 retrieve_approval(flight)
 
 function retrieve_approval(approval_info) {
-    var config = {
-        method: 'get',
-        url: 'http://127.0.0.1:7579/Mobius/' + approval_info.approval_gcs + '/approval/' + approval_info.flight + '/la',
-        headers: {
-            'Accept': 'application/json',
-            'X-M2M-RI': '12345',
-            'X-M2M-Origin': 'SOrigin'
-        }
-    };
+    my_gcs_name = approval_info.approval_gcs
 
-    axios(config)
-        .then(function (response) {
-            if (response.status === 200) {
-                if (response.data.hasOwnProperty('m2m:cin')) {
-                    if (response.data['m2m:cin'].hasOwnProperty('con')) {
-                        if (response.data['m2m:cin'].con.hasOwnProperty('gcs')) {
-                            my_gcs_name = response.data['m2m:cin'].con.gcs
-                        } else {
-                            my_gcs_name = 'KETI_LVC'
-                        }
-                        mobius_pub_rc_topic = mobius_pub_rc_topic + my_gcs_name + '/RC_Data'
-                    }
-                }
-            }
+    mobius_pub_rc_topic = mobius_pub_rc_topic + my_gcs_name + '/RC_Data'
 
-            local_mqtt_connect('127.0.0.1')
+    local_mqtt_connect('127.0.0.1')
 
-            rcPortOpening()
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-
+    rcPortOpening()
 }
 
 function local_mqtt_connect(serverip) {
