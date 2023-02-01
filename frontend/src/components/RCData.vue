@@ -883,13 +883,14 @@ export default {
         }
     },
     mounted() {
-        EventBus.$on('mqttConnection', () => {
-            if (this.$store.state.MOBIUS_CONNECTION_CONNECTED) {
-                this.createConnection()
-            } else {
-                this.destroyConnection()
-            }
-        });
+        this.createConnection();
+        // EventBus.$on('mqttConnection', () => {
+        //     if (this.$store.state.MOBIUS_CONNECTION_CONNECTED) {
+        //         this.createConnection()
+        //     } else {
+        //         this.destroyConnection()
+        //     }
+        // });
     },
     beforeDestroy() {
         this.destroyConnection()

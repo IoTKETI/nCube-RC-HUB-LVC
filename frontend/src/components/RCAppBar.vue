@@ -103,11 +103,11 @@ export default {
     },
     mounted() {
         // if (this.MOBIUS_CONNECTION_CONNECTED) {
-        this.GcsAppBarCreated();
+        //     this.GcsAppBarCreated();
         // }
     },
     beforeDestroy() {
-        this.GcsAppBarReseted()
+        // this.GcsAppBarReseted()
     }
 }
 </script>
