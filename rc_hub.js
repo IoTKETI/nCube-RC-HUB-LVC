@@ -146,13 +146,14 @@ function rcPortData(message) {
         let header1 = RCstrFromGCS.substring(0, 2);
         if (header1 === 'ff') {
             let RCData = RCstrFromGCS.substring(0, RC_LENGTH);
+
             /*  send to local topic */
-            if (flight.simul.toLowerCase() === 'on') {
-                // to Simul
-                local_mqtt_client.publish(mobius_pub_rc_topic, Buffer.from(RCData, 'hex'), () => {
-                    console.log(mobius_pub_rc_topic);
-                });
-            } else if (flight.simul.toLowerCase() === 'off') {
+            // to Simul
+            local_mqtt_client.publish(mobius_pub_rc_topic, Buffer.from(RCData, 'hex'), () => {
+                console.log(mobius_pub_rc_topic);
+            });
+
+            if (flight.simul.toLowerCase() === 'off') {
                 // to real
                 rfPort.write(RCData, () => {
                     console.log('Send to real drone');

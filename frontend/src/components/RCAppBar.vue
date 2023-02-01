@@ -10,56 +10,56 @@
                 </v-row>
             </v-toolbar-title>
 
-            <v-row no-gutters class="text-right justify-center mt-1">
-                <v-col cols="2">
-                    <v-text-field
-                        dense dark hide-details outlined
-                        ref="gcs"
-                        v-model="gcs" :rules="gcs_rule"
-                        placeholder="KETI_MUV"
-                        label="GCS*"
-                        style="font-size: 20px;"
-                        required
-                        :disabled="MOBIUS_CONNECTION_CONNECTED"
-                    ></v-text-field>
-                </v-col>
-                <!--                <v-col cols="2">-->
-                <!--                    &lt;!&ndash;                            <v-text-field hide-details ref="host" v-model="host" :rules="host_rule" placeholder="203.253.128.177" label="Host*" required></v-text-field>&ndash;&gt;-->
-                <!--                    <v-text-field-->
-                <!--                        class="mx-2"-->
-                <!--                        dense dark hide-details outlined-->
-                <!--                        ref="rc"-->
-                <!--                        v-model="rc" :rules="rc_rule"-->
-                <!--                        placeholder="JWS"-->
-                <!--                        label="RC*"-->
-                <!--                        style="font-size: 25px;"-->
-                <!--                        required-->
-                <!--                        :disabled="MOBIUS_CONNECTION_CONNECTED"-->
-                <!--                    ></v-text-field>-->
-                <!--                </v-col>-->
-                <v-col cols="4" align-self="center">
-                    <v-btn
-                        class="mx-2 mt-n1 rounded-lg"
-                        tile @click="GcsAppBarCreated"
-                        elevation="4"
-                        color="success"
-                        style="font-size: 18px;"
-                        height="40"
-                        :disabled="MOBIUS_CONNECTION_CONNECTED"
-                    > {{ MOBIUS_CONNECTION_TEXT }}
-                    </v-btn>
-                    <v-btn
-                        class="mx-2 mt-n1 rounded-lg"
-                        tile @click="GcsAppBarReseted"
-                        elevation="2"
-                        color="error"
-                        style="font-size: 18px;"
-                        height="40"
-                        :disabled="!MOBIUS_CONNECTION_CONNECTED"
-                    > {{ MOBIUS_DISCONNECTION_TEXT }}
-                    </v-btn>
-                </v-col>
-            </v-row>
+<!--            <v-row no-gutters class="text-right justify-center mt-1">-->
+<!--                <v-col cols="2">-->
+<!--                    <v-text-field-->
+<!--                        dense dark hide-details outlined-->
+<!--                        ref="gcs"-->
+<!--                        v-model="gcs" :rules="gcs_rule"-->
+<!--                        placeholder="KETI_MUV"-->
+<!--                        label="GCS*"-->
+<!--                        style="font-size: 20px;"-->
+<!--                        required-->
+<!--                        :disabled="MOBIUS_CONNECTION_CONNECTED"-->
+<!--                    ></v-text-field>-->
+<!--                </v-col>-->
+<!--                &lt;!&ndash;                <v-col cols="2">&ndash;&gt;-->
+<!--                &lt;!&ndash;                    &lt;!&ndash;                            <v-text-field hide-details ref="host" v-model="host" :rules="host_rule" placeholder="203.253.128.177" label="Host*" required></v-text-field>&ndash;&gt;&ndash;&gt;-->
+<!--                &lt;!&ndash;                    <v-text-field&ndash;&gt;-->
+<!--                &lt;!&ndash;                        class="mx-2"&ndash;&gt;-->
+<!--                &lt;!&ndash;                        dense dark hide-details outlined&ndash;&gt;-->
+<!--                &lt;!&ndash;                        ref="rc"&ndash;&gt;-->
+<!--                &lt;!&ndash;                        v-model="rc" :rules="rc_rule"&ndash;&gt;-->
+<!--                &lt;!&ndash;                        placeholder="JWS"&ndash;&gt;-->
+<!--                &lt;!&ndash;                        label="RC*"&ndash;&gt;-->
+<!--                &lt;!&ndash;                        style="font-size: 25px;"&ndash;&gt;-->
+<!--                &lt;!&ndash;                        required&ndash;&gt;-->
+<!--                &lt;!&ndash;                        :disabled="MOBIUS_CONNECTION_CONNECTED"&ndash;&gt;-->
+<!--                &lt;!&ndash;                    ></v-text-field>&ndash;&gt;-->
+<!--                &lt;!&ndash;                </v-col>&ndash;&gt;-->
+<!--                <v-col cols="4" align-self="center">-->
+<!--                    <v-btn-->
+<!--                        class="mx-2 mt-n1 rounded-lg"-->
+<!--                        tile @click="GcsAppBarCreated"-->
+<!--                        elevation="4"-->
+<!--                        color="success"-->
+<!--                        style="font-size: 18px;"-->
+<!--                        height="40"-->
+<!--                        :disabled="MOBIUS_CONNECTION_CONNECTED"-->
+<!--                    > {{ MOBIUS_CONNECTION_TEXT }}-->
+<!--                    </v-btn>-->
+<!--                    <v-btn-->
+<!--                        class="mx-2 mt-n1 rounded-lg"-->
+<!--                        tile @click="GcsAppBarReseted"-->
+<!--                        elevation="2"-->
+<!--                        color="error"-->
+<!--                        style="font-size: 18px;"-->
+<!--                        height="40"-->
+<!--                        :disabled="!MOBIUS_CONNECTION_CONNECTED"-->
+<!--                    > {{ MOBIUS_DISCONNECTION_TEXT }}-->
+<!--                    </v-btn>-->
+<!--                </v-col>-->
+<!--            </v-row>-->
         </v-app-bar>
     </v-card>
 </template>
