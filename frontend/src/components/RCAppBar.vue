@@ -3,7 +3,10 @@
         <v-app-bar app dark dense height="50">
             <v-toolbar-title>
                 <v-row no-gutters align="center" justify="center" style="font-weight: bold; color: white">
-                    <h4 class="mt-2"><font-awesome-icon class="mr-4" icon="gamepad" size="xl"/>KETI nCube RC</h4>
+                    <h4 class="mt-2">
+                        <font-awesome-icon class="mr-4" icon="gamepad" size="xl"/>
+                        KETI nCube RC
+                    </h4>
                 </v-row>
             </v-toolbar-title>
 
@@ -99,9 +102,9 @@ export default {
         }
     },
     mounted() {
-        if (this.MOBIUS_CONNECTION_CONNECTED) {
-            this.GcsAppBarCreated();
-        }
+        // if (this.MOBIUS_CONNECTION_CONNECTED) {
+        this.GcsAppBarCreated();
+        // }
     },
     beforeDestroy() {
         this.GcsAppBarReseted()
