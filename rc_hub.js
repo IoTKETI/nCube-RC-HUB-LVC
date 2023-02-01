@@ -54,7 +54,10 @@ function retrieve_approval(approval_info) {
 
     rcPortOpening();
     if (approval_info.simul.toLowerCase() === 'off') {
+        console.log("====================================\n\t Using real drone \t\t\n====================================");
         rfPortOpening();
+    } else {
+        console.log("==============================\n\t Using SITL \t\t\n==============================");
     }
 }
 
@@ -153,7 +156,7 @@ function rcPortData(message) {
             /*  send to local topic */
             // to Simul
             local_mqtt_client.publish(mobius_pub_rc_topic, Buffer.from(RCData, 'hex'), () => {
-                console.log(mobius_pub_rc_topic);
+                // console.log(mobius_pub_rc_topic, RCData);
             });
 
             if (flight.simul.toLowerCase() === 'off') {
