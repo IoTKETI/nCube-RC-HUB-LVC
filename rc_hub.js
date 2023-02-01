@@ -53,6 +53,9 @@ function retrieve_approval(approval_info) {
     local_mqtt_connect('127.0.0.1');
 
     rcPortOpening();
+    if (approval_info.simul.toLowerCase() === 'off') {
+        rfPortOpening();
+    }
 }
 
 function local_mqtt_connect(serverip) {
