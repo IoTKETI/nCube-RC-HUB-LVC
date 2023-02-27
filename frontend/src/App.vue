@@ -14,7 +14,7 @@
         >
             <b-icon
                 icon="exclamation-circle-fill"
-                class="mr-4 mb-n2"
+                className="mr-4 mb-n2"
                 style="width: 25px; height: 25px"
             ></b-icon>
             <span style="vertical-align: middle; font-weight: bold; font-size: 20px">{{ Log }}</span>
@@ -28,7 +28,7 @@
             height="60"
         >
             <b-icon-exclamation-triangle-fill
-                class="mr-4 mb-n2"
+                className="mr-4 mb-n2"
                 style="width: 25px; height: 25px"
             ></b-icon-exclamation-triangle-fill>
             <span style="vertical-align: middle; font-weight: bold; font-size: 20px">{{ Log }}</span>
@@ -42,7 +42,7 @@
             height="60"
         >
             <font-awesome-icon
-                class="mr-4"
+                className="mr-4"
                 icon="check-circle"
                 size="2x"
                 style="vertical-align: middle;"/>
@@ -57,7 +57,7 @@
             height="60"
         >
             <font-awesome-icon
-                class="mr-4"
+                className="mr-4"
                 icon="info-circle"
                 size="2x"
                 style="vertical-align: middle;"/>

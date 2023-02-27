@@ -1,9 +1,9 @@
 <template>
-    <v-container class="lte_rc" fluid>
+    <v-container class="lte_rc mx-n2" fluid>
         <v-row>
-            <v-col cols="6" class="mr-n16">
+            <v-col cols="6" class="mr-n16 ml-16">
                 <v-row justify="center" class="ml-5 mr-n8">
-                    <v-col cols="8">
+                    <v-col cols="10">
                         <v-progress-linear
                             class="mt-2"
                             v-model="ch_value.ch1_value"
@@ -13,33 +13,22 @@
                             <span style="font-size: 23px">Roll <strong>{{ ch_raw.ch1_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
-                    <v-col cols="3">
-                        <!--                        <v-switch-->
-                        <!--                            v-model="reverse_roll"-->
-                        <!--                            inset-->
-                        <!--                        ></v-switch>-->
+                    <v-col cols="2">
                     </v-col>
                 </v-row>
                 <v-row justify="center" style="height: 100px;">
                     <v-col cols="3" align-self="end">
                     </v-col>
-                    <v-col cols="6" class="ml-n3" align-self="start">
-                        <!--                        <v-switch-->
-                        <!--                            v-model="reverse_pitch"-->
-                        <!--                            inset-->
-                        <!--                        ></v-switch>-->
+                    <v-col cols="6" class="mt-16 pt-16 ml-n16 text-center">
+                        <h3 style="font-weight: bold">[ {{ fltmode }} ]</h3>
                     </v-col>
-                    <v-col cols="3" class="ml-n8" align-self="end">
-                        <!--                        <v-switch-->
-                        <!--                            v-model="reverse_throttle"-->
-                        <!--                            inset-->
-                        <!--                        ></v-switch>-->
+                    <v-col cols="3" align-self="end">
                     </v-col>
                 </v-row>
                 <v-row align="center"
                        style="height: 100px;"
                        justify="center">
-                    <v-col cols="6" class="ml-n9 mr-n9">
+                    <v-col cols="6" class="ml-n16">
                         <v-progress-linear
                             class="progress-vertical"
                             v-model="ch_value.ch2_value"
@@ -49,7 +38,7 @@
                             <span style="font-size: 23px">Pitch <strong>{{ ch_raw.ch2_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
-                    <v-col cols="6" class="mr-16">
+                    <v-col cols="6">
                         <v-progress-linear
                             class="progress-vertical"
                             v-model="ch_value.ch3_value"
@@ -61,7 +50,9 @@
                     </v-col>
                 </v-row>
                 <v-row class="mt-16 pt-13" justify="center">
-                    <v-col cols="8">
+                    <v-col cols="1" class="ml-n12">
+                    </v-col>
+                    <v-col cols="10">
                         <v-progress-linear
                             v-model="ch_value.ch4_value"
                             height="40"
@@ -70,17 +61,13 @@
                             <span style="font-size: 23px">Yaw <strong>{{ ch_raw.ch4_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
-                    <v-col cols="2" class="mt-n2">
-                        <!--                        <v-switch-->
-                        <!--                            v-model="reverse_yaw"-->
-                        <!--                            inset-->
-                        <!--                        ></v-switch>-->
+                    <v-col cols="1" class="mt-n2">
                     </v-col>
                 </v-row>
             </v-col>
-            <v-col cols="6" class="ml-n16 pl-n16">
+            <v-col cols="6" class="pl-n16">
                 <v-row justify="center">
-                    <v-col cols="8">
+                    <v-col cols="10">
                         <v-progress-linear
                             class="mt-2"
                             v-model="ch_value.ch17_value"
@@ -91,18 +78,10 @@
                         </v-progress-linear>
                     </v-col>
                     <v-col cols="2">
-                        <!--                        <v-switch-->
-                        <!--                            v-model="reverse_pan"-->
-                        <!--                            inset-->
-                        <!--                        ></v-switch>-->
                     </v-col>
                 </v-row>
                 <v-row justify="end" style="height: 108px;">
                     <v-col cols="6" align="center">
-                        <!--                        <v-switch-->
-                        <!--                            v-model="reverse_tilt"-->
-                        <!--                            inset-->
-                        <!--                        ></v-switch>-->
                     </v-col>
                 </v-row>
                 <v-row align="center"
@@ -120,7 +99,7 @@
                     </v-col>
                 </v-row>
                 <v-row class="mt-16 pt-14" justify="center">
-                    <v-col cols="8">
+                    <v-col cols="10">
                         <v-progress-linear
                             v-model="ch_value.ch19_value"
                             height="40"
@@ -130,17 +109,13 @@
                         </v-progress-linear>
                     </v-col>
                     <v-col cols="2" class="mt-n2">
-                        <!--                        <v-switch-->
-                        <!--                            v-model="reverse_zoom"-->
-                        <!--                            inset-->
-                        <!--                        ></v-switch>-->
                     </v-col>
                 </v-row>
             </v-col>
         </v-row>
         <v-divider class="mt-n5"></v-divider>
         <v-row class="mt-n4 ml-3">
-            <v-col cols="6" class="mr-n13">
+            <v-col cols="6" class="mr-n16 ml-12">
                 <v-row class="ml-3">
                     <v-col cols="5">
                         <v-progress-linear
@@ -242,7 +217,7 @@
                     </v-col>
                 </v-row>
             </v-col>
-            <v-col cols="6" class="ml-n16">
+            <v-col cols="6" class="ml-n2">
                 <v-row class="ml-3">
                     <v-col cols="5">
                         <v-progress-linear
@@ -595,7 +570,12 @@ export default {
 
             requested: false,
 
-            ErrorLog: {level: '', message: ''}
+            ErrorLog: {level: '', message: ''},
+
+            fltmode: 'STABILIZE',
+
+            rc_count: 0,
+            t_rc: null
         }
     },
     methods: {
@@ -627,59 +607,9 @@ export default {
                             console.log('[Local] Subscribe to topics error', error)
                         }
                         this.subscribeSuccess = true
+                        EventBus.$emit('connect_state', ({"log": 'MQTT connected ', "state": "connected"}))
                         console.log('[Local] Subscribe to topics res', res)
                     })
-
-                    if (Object.keys(this.$store.state.control_drone).length > 0) {
-                        for (let idx in Object.keys(this.$store.state.control_drone)) {
-                            if (!Object.prototype.hasOwnProperty.call(this.$store.state.control_drone[Object.keys(this.$store.state.control_drone)[idx]], 'system_id')) {
-                                this.$store.state.control_drone[Object.keys(this.$store.state.control_drone)[idx]].system_id = 1
-                            }
-                            let drone = {}
-                            drone.name = Object.keys(this.$store.state.control_drone)[idx]
-                            drone.icon = 'times-circle'
-                            drone.status = 'disabled'
-                            drone.bpm = 1
-                            drone.bpmcolor = 'red'
-                            drone.recv_counter = 1
-                            drone.system_id = this.$store.state.control_drone[drone.name].system_id
-                            EventBus.$emit('update-table', drone)
-
-                            clearInterval(this.$store.state.control_drone[drone.name].timer_id)
-                            this.$store.state.control_drone[drone.name] = {
-                                icon: 'times-circle',
-                                status: 'disabled',
-                                bpm: 1,
-                                bpmcolor: 'red',
-                                recv_counter: 1,
-                                system_id: this.$store.state.control_drone[drone.name].system_id,
-                                selected: false,
-                                timer_id: setInterval(() => {
-                                    this.$store.state.control_drone[drone.name].bpm = this.$store.state.control_drone[drone.name].recv_counter;
-                                    this.$store.state.control_drone[drone.name].recv_counter = 1;
-                                    if (this.$store.state.control_drone[drone.name].bpm < 5) {
-                                        this.$store.state.control_drone[drone.name].icon = 'exclamation-triangle'
-                                    } else if (this.$store.state.control_drone[drone.name].bpm < 9) {
-                                        this.$store.state.control_drone[drone.name].icon = 'play'
-                                    } else if (this.$store.state.control_drone[drone.name].bpm < 12) {
-                                        this.$store.state.control_drone[drone.name].icon = 'circle'
-                                    }
-                                }, 10000)
-                            }
-                            console.log('control_drone Info\n', drone.name, this.$store.state.control_drone[drone.name])
-
-                            let topic = '/RC/' + drone.name + '/status'
-                            let qos = 0
-                            this.$store.state.client.unsubscribe(topic)
-                            this.$store.state.client.subscribe(topic, {qos}, (error, res) => {
-                                if (error) {
-                                    console.log('[Local] Subscribe to topics error', error)
-                                }
-                                this.subscribeSuccess = true
-                                console.log('[Local] Subscribe to topics res', res)
-                            })
-                        }
-                    }
                 })
                 this.$store.state.client.on('error', error => {
                     console.log('[Local] Connection failed', error)
@@ -690,6 +620,11 @@ export default {
 
                     if (topic_arr[3] === 'RC_Data') {
                         this.receiveFromRC(message)
+                        if (!this.$store.state.connect_state) {
+                            EventBus.$emit('connect_state', ({"log": 'RC signal connected ', "state": "rc connected"}))
+                            this.$store.state.connect_state = true;
+                        }
+                        this.rc_count = 0;
                     }
                 })
             }
@@ -738,7 +673,8 @@ export default {
                     };
                     console.log('[Local] Disconnect failed', error.toString())
                 }
-                EventBus.$emit('init_drone_selected')
+                // EventBus.$emit('init_drone_selected')
+                EventBus.$emit('connect_state', ({"log": 'MQTT disconnected ', "state": "disconnected"}))
             }
         },
         SBUS2RC(x) {
@@ -749,7 +685,6 @@ export default {
         },
         receiveFromRC(hex_content_each) {
             let received_rdData = hex_content_each.toString('hex')
-            // let received_rdData = hex_content.slice(2, hex_content.length)
 
             this.ch_raw.ch1_raw = parseInt(received_rdData.substring(2, 4), 16)
             this.ch_raw.ch1_raw = this.SBUS2RC(this.ch_raw.ch1_raw)
@@ -764,7 +699,20 @@ export default {
             this.ch_raw.ch4_raw = this.SBUS2RC(this.ch_raw.ch4_raw)
 
             this.ch_raw.ch5_raw = parseInt(received_rdData.substring(10, 12), 16)
-            this.ch_raw.ch5_raw = this.SBUS2RC(this.ch_raw.ch5_raw) - 5
+            this.ch_raw.ch5_raw = this.SBUS2RC(this.ch_raw.ch5_raw) - 7
+            if (this.ch_raw.ch5_raw <= 1230) {
+                this.fltmode = "ALT_HOLD";
+            } else if (this.ch_raw.ch5_raw > 1230 && this.ch_raw.ch5_raw <= 1360) {
+                this.fltmode = "POS_HOLD";
+            } else if (this.ch_raw.ch5_raw > 1360 && this.ch_raw.ch5_raw <= 1490) {
+                this.fltmode = "LOITER";
+            } else if (this.ch_raw.ch5_raw > 1490 && this.ch_raw.ch5_raw <= 1620) {
+                this.fltmode = "RTL";
+            } else if (this.ch_raw.ch5_raw > 1620 && this.ch_raw.ch5_raw <= 1749) {
+                this.fltmode = "AUTO";
+            } else if (this.ch_raw.ch5_raw >= 1750) {
+                this.fltmode = "BRAKE";
+            }
 
             this.ch_raw.ch6_raw = parseInt(received_rdData.substring(12, 14), 16)
             this.ch_raw.ch6_raw = this.SBUS2RC(this.ch_raw.ch6_raw)
@@ -884,13 +832,17 @@ export default {
     },
     mounted() {
         this.createConnection();
-        // EventBus.$on('mqttConnection', () => {
-        //     if (this.$store.state.MOBIUS_CONNECTION_CONNECTED) {
-        //         this.createConnection()
-        //     } else {
-        //         this.destroyConnection()
-        //     }
-        // });
+
+        this.t_rc = setInterval(() => {
+            if (this.$store.state.connect_state) {
+                this.rc_count++;
+                if (this.rc_count > 200) {
+                    this.$store.state.connect_state = false;
+                    EventBus.$emit('connect_state', ({"log": 'Waiting for RC siganl ', "state": "rc disconnected"}))
+                    this.rc_count = 0;
+                }
+            }
+        }, 30);
     },
     beforeDestroy() {
         this.destroyConnection()
@@ -901,7 +853,7 @@ export default {
 <style>
 .lte_rc {
     position: absolute;
-    left: 22%;
+    left: 3%;
     top: -25px;
 }
 

@@ -11,26 +11,14 @@ import VueCookies from "vue-cookies"
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {
     faSpinner,
-    faTimes,
-    faTimesCircle,
-    faUnlink,
-    faLink,
     faCircle,
-    faExclamationCircle,
-    faPlay,
-    faExclamationTriangle,
-    faTrash,
-    faCaretDown,
     faGamepad,
-    faExclamation,
-    faInfoCircle,
-    faCheckCircle
+    faBars
 } from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
 library.add(
-    faSpinner, faTimes, faTimesCircle, faUnlink, faLink, faCircle, faExclamationCircle, faPlay, faExclamationTriangle,
-    faTrash, faCaretDown, faGamepad, faExclamation, faInfoCircle, faCheckCircle
+    faSpinner, faCircle, faGamepad, faBars
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

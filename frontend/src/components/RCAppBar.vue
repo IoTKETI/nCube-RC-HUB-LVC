@@ -1,131 +1,129 @@
 <template>
     <v-card>
-        <v-app-bar app dark dense height="50">
+        <v-app-bar app class="bg ml-n3 mr-n10" dark dense height="50">
             <v-toolbar-title>
                 <v-row no-gutters align="center" justify="center" style="font-weight: bold; color: white">
                     <h4 class="mt-2">
-                        <font-awesome-icon class="mr-4" icon="gamepad" size="xl"/>
-                        KETI nCube RC
+                        <font-awesome-icon class="mr-2" icon="gamepad" size="lg"/>
+                        KETI LVC RC Monitor
                     </h4>
                 </v-row>
             </v-toolbar-title>
+            <v-row no-gutters class="text-right mr-16 pr-2 justify-center mt-2">
+                <h4>
+                    {{ log }}
+                    <font-awesome-icon
+                        v-if="state === 'disconnected'"
+                        class="ml-2 mr-n14"
+                        icon="circle"
+                        size="xs"
+                        :style="{ color: 'red' }"/>
+                    <font-awesome-icon
+                        v-if="state === 'connected'"
+                        class="ml-2 mr-n14"
+                        icon="circle"
+                        size="xs"
+                        :style="{ color: 'blue' }"/>
+                    <font-awesome-icon
+                        v-if="state === 'rc connected'"
+                        class="ml-2 mr-n14"
+                        icon="fa-solid fa-circle" beat-fade
+                        size="xs"
+                        :style="{ color: 'green' }"/>
+                    <font-awesome-icon
+                        v-if="state === 'rc disconnected'"
+                        class="ml-2 mr-n14"
+                        icon="fa-solid fa-spinner" spin-pulse
+                        size="xs"
+                        :style="{ color: 'red' }"/>
+                </h4>
+            </v-row>
+            <!--            TODO: TBD-->
+            <!--            <v-menu-->
+            <!--                top-->
+            <!--                :offset-y="offset">-->
+            <!--                <template v-slot:activator="{ on, attrs }">-->
 
-<!--            <v-row no-gutters class="text-right justify-center mt-1">-->
-<!--                <v-col cols="2">-->
-<!--                    <v-text-field-->
-<!--                        dense dark hide-details outlined-->
-<!--                        ref="gcs"-->
-<!--                        v-model="gcs" :rules="gcs_rule"-->
-<!--                        placeholder="KETI_MUV"-->
-<!--                        label="GCS*"-->
-<!--                        style="font-size: 20px;"-->
-<!--                        required-->
-<!--                        :disabled="MOBIUS_CONNECTION_CONNECTED"-->
-<!--                    ></v-text-field>-->
-<!--                </v-col>-->
-<!--                &lt;!&ndash;                <v-col cols="2">&ndash;&gt;-->
-<!--                &lt;!&ndash;                    &lt;!&ndash;                            <v-text-field hide-details ref="host" v-model="host" :rules="host_rule" placeholder="203.253.128.177" label="Host*" required></v-text-field>&ndash;&gt;&ndash;&gt;-->
-<!--                &lt;!&ndash;                    <v-text-field&ndash;&gt;-->
-<!--                &lt;!&ndash;                        class="mx-2"&ndash;&gt;-->
-<!--                &lt;!&ndash;                        dense dark hide-details outlined&ndash;&gt;-->
-<!--                &lt;!&ndash;                        ref="rc"&ndash;&gt;-->
-<!--                &lt;!&ndash;                        v-model="rc" :rules="rc_rule"&ndash;&gt;-->
-<!--                &lt;!&ndash;                        placeholder="JWS"&ndash;&gt;-->
-<!--                &lt;!&ndash;                        label="RC*"&ndash;&gt;-->
-<!--                &lt;!&ndash;                        style="font-size: 25px;"&ndash;&gt;-->
-<!--                &lt;!&ndash;                        required&ndash;&gt;-->
-<!--                &lt;!&ndash;                        :disabled="MOBIUS_CONNECTION_CONNECTED"&ndash;&gt;-->
-<!--                &lt;!&ndash;                    ></v-text-field>&ndash;&gt;-->
-<!--                &lt;!&ndash;                </v-col>&ndash;&gt;-->
-<!--                <v-col cols="4" align-self="center">-->
-<!--                    <v-btn-->
-<!--                        class="mx-2 mt-n1 rounded-lg"-->
-<!--                        tile @click="GcsAppBarCreated"-->
-<!--                        elevation="4"-->
-<!--                        color="success"-->
-<!--                        style="font-size: 18px;"-->
-<!--                        height="40"-->
-<!--                        :disabled="MOBIUS_CONNECTION_CONNECTED"-->
-<!--                    > {{ MOBIUS_CONNECTION_TEXT }}-->
-<!--                    </v-btn>-->
-<!--                    <v-btn-->
-<!--                        class="mx-2 mt-n1 rounded-lg"-->
-<!--                        tile @click="GcsAppBarReseted"-->
-<!--                        elevation="2"-->
-<!--                        color="error"-->
-<!--                        style="font-size: 18px;"-->
-<!--                        height="40"-->
-<!--                        :disabled="!MOBIUS_CONNECTION_CONNECTED"-->
-<!--                    > {{ MOBIUS_DISCONNECTION_TEXT }}-->
-<!--                    </v-btn>-->
-<!--                </v-col>-->
-<!--            </v-row>-->
+            <!--                    <v-btn-->
+            <!--                        icon-->
+            <!--                        v-bind="attrs"-->
+            <!--                        v-on="on"-->
+            <!--                    >-->
+            <!--                        <font-awesome-icon-->
+            <!--                            icon="fa-solid fa-bars"-->
+            <!--                            size="xl"-->
+            <!--                            :style="{ color: 'white' }"/>-->
+            <!--                    </v-btn>-->
+            <!--                </template>-->
+
+            <!--                <v-list>-->
+            <!--                    <v-list-item-group-->
+            <!--                        v-model="model"-->
+            <!--                        mandatory-->
+            <!--                        color="indigo"-->
+            <!--                    >-->
+            <!--                        <v-list-item-->
+            <!--                            v-for="(item, index) in items"-->
+            <!--                            :key="index"-->
+            <!--                        >-->
+            <!--                            <v-list-item-title v-text="item.title"></v-list-item-title>-->
+            <!--                        </v-list-item>-->
+            <!--                    </v-list-item-group>-->
+            <!--                </v-list>-->
+            <!--            </v-menu>-->
+
         </v-app-bar>
     </v-card>
 </template>
 
 <script>
 import EventBus from "@/EventBus";
-import {nanoid} from "nanoid";
 
 export default {
     name: "RCAppBar",
     data: function () {
         return {
-            MOBIUS_DISCONNECTION_TEXT: 'Disconnect',
-            MOBIUS_CONNECTION_TEXT: 'Connect',
-            MOBIUS_CONNECTION_CONNECTED: false,
+            log: 'MQTT disconnected ',
+            state: 'disconnected',
 
-            gcs: localStorage.getItem('mobius_gcs') ? (localStorage.getItem('mobius_gcs')) : (this.$store.state.VUE_APP_MOBIUS_GCS),
-            gcs_rule: [
-                v => !!v || 'GCS 이름은 필수 입력사항입니다.',
-                v => !/[~!@#$%^&*()+|<>?:{}]/.test(v) || 'GCS 이름에는 특수문자를 사용할 수 없습니다.'
-            ]
-        }
-    },
-    methods: {
-        GcsAppBarCreated() {
-            this.$store.state.VUE_APP_MOBIUS_GCS = this.gcs
-            this.$store.state.VUE_APP_MOBIUS_RC = 'nCube_RC_HUB_' + nanoid(15)
-            this.MOBIUS_CONNECTION_CONNECTED = true
-            this.$store.state.MOBIUS_CONNECTION_CONNECTED = true
-
-            localStorage.setItem('mobius_gcs', this.gcs)
-
-            EventBus.$emit('mqttConnection')
-        },
-        GcsAppBarReseted() {
-            this.MOBIUS_CONNECTION_CONNECTED = false
-            this.$store.state.MOBIUS_CONNECTION_CONNECTED = false
-
-            EventBus.$emit('mqttConnection')
+            items: [
+                {title: 'Calibration'},
+                {title: 'Click Me'},
+                {title: 'Click Me'},
+                {title: 'Click Me 2'},
+            ],
+            offset: false,
+            model: 1
         }
     },
     mounted() {
-        // if (this.MOBIUS_CONNECTION_CONNECTED) {
-        //     this.GcsAppBarCreated();
-        // }
-    },
-    beforeDestroy() {
-        // this.GcsAppBarReseted()
+        EventBus.$on('connect_state', (log) => {
+            this.log = log.log;
+            this.state = log.state;
+
+            setTimeout(() => {
+                if (this.state.substring(0, 2) !== 'rc') {
+                    this.log = '';
+                    this.state = '';
+                } else {
+                    if (this.$store.state.connect_state) {
+                        this.log = '';
+                        this.state = 'rc connected';
+                    }
+                }
+            }, 5000);
+        })
     }
 }
 </script>
 
 <style scoped>
-#create .v-speed-dial {
-    position: absolute;
-}
-
-#create .v-btn--floating {
-    position: relative;
-}
-
 .v-text-field >>> label {
     font-size: 0.8em;
 }
 
-.baricon {
-    color: white;
+.bg {
+    max-width: 101%;
+    background-image: linear-gradient(15deg, #0063a2 0%, #83cef3 90%);
 }
 </style>

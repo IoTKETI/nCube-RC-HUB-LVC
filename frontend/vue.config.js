@@ -30,7 +30,7 @@ module.exports = {
                 publish: [
                     {
                         provider: "github",
-                        owner: "dnjstjr93",
+                        owner: "IoTKETI",
                         repo: "nCube-RC-HUB-LVC",
                         vPrefixedTagName: true,
                         host: "github.com",
