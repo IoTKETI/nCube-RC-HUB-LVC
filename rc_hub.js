@@ -169,6 +169,7 @@ function rcPortData(message) {
             RCstrFromGCS = RCstrFromGCS.substring(RC_LENGTH);
             RCstrFromGCSLength = 0;
         } else {
+            console.log('wrong data - ' + RCstrFromGCS);
             RCstrFromGCS = RCstrFromGCS.substring(2);
         }
     }
