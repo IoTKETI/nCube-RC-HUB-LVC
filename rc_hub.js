@@ -161,7 +161,7 @@ function rcPortData(message) {
 
             if (flight.simul.toLowerCase() === 'off') {
                 // to real
-                rfPort.write(RCData, () => {
+                rfPort.write(Buffer.from(RCData, 'hex'), () => {
                     console.log('Send to real drone');
                 });
             }
