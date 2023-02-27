@@ -11,10 +11,9 @@ module.exports = {
             nodeModulesPath: ['../../node_modules', './node_modules'],
             builderOptions: {
                 // options placed here will be merged with default configuration and passed to electron-builder
-                appId: 'kr.re.keti.app',
-                productName: "nCube_RC",
+                appId: 'kr.re.keti.lvc.rcmon.app',
+                productName: "nCube-RC-HUB-LVC",
                 win: {
-                    icon: "./public/GCS.png",
                     target: [
                         {
                             target: "nsis",

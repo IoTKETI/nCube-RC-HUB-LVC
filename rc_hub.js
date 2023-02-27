@@ -31,16 +31,16 @@ let my_gcs_name = '';
 
 let flight = {};
 try {
-    flight = JSON.parse(fs.readFileSync('./flight.json', 'utf8'));
+    flight = JSON.parse(fs.readFileSync('../flight.json', 'utf8'));
 } catch (e) {
-    console.log('can not find [ ./flight.json ] file');
+    console.log('can not find [ ../flight.json ] file');
     flight.host = '127.0.0.1';
     flight.gcs = 'KETI_LVC';
     flight.drone_name = "LVC_Drone";
     flight.sysid = 251;
     flight.simul = "on";
 
-    fs.writeFileSync('./flight.json', JSON.stringify(flight, null, 4), 'utf8');
+    fs.writeFileSync('../flight.json', JSON.stringify(flight, null, 4), 'utf8');
 }
 
 retrieve_approval(flight);
