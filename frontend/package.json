@@ -1,6 +1,6 @@
 {
-    "name": "nCube-RC-HUB-LVC",
-    "version": "1.2.0",
+    "name": "LVC_RC_Monitor",
+    "version": "1.3.0",
     "private": true,
     "scripts": {
         "build": "vue-cli-service build",

@@ -12,7 +12,7 @@ module.exports = {
             builderOptions: {
                 // options placed here will be merged with default configuration and passed to electron-builder
                 appId: 'kr.re.keti.lvc.rcmon.app',
-                productName: "nCube-RC-HUB-LVC",
+                productName: "LVC-RC-Monitor",
                 win: {
                     target: [
                         {

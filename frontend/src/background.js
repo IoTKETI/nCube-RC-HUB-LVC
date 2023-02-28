@@ -20,7 +20,6 @@ async function createWindow() {
         width: 1220,
         height: 810,
         autoHideMenuBar: true,
-
         webPreferences: {
 
             // Use pluginOptions.nodeIntegration, leave this alone
