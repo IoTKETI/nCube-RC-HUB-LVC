@@ -9,8 +9,11 @@
                             v-model="ch_value.ch1_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Roll <strong>{{ ch_raw.ch1_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Roll <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch1_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                     <v-col cols="2">
@@ -34,8 +37,11 @@
                             v-model="ch_value.ch2_value"
                             height="50"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: -3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Pitch <strong>{{ ch_raw.ch2_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Pitch <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch2_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                     <v-col cols="6">
@@ -44,8 +50,11 @@
                             v-model="ch_value.ch3_value"
                             height="50"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: -3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Throttle <strong>{{ ch_raw.ch3_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Throttle <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch3_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                 </v-row>
@@ -57,8 +66,11 @@
                             v-model="ch_value.ch4_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Yaw <strong>{{ ch_raw.ch4_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Yaw <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch4_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                     <v-col cols="1" class="mt-n2">
@@ -73,8 +85,11 @@
                             v-model="ch_value.ch17_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Pan <strong>{{ ch_raw.ch17_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Pan <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch17_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                     <v-col cols="2">
@@ -93,8 +108,11 @@
                             v-model="ch_value.ch18_value"
                             height="50"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: -3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Tilt <strong>{{ ch_raw.ch18_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Tilt <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch18_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                 </v-row>
@@ -104,8 +122,11 @@
                             v-model="ch_value.ch19_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Zoom <strong>{{ ch_raw.ch19_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Zoom <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch19_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                     <v-col cols="2" class="mt-n2">
@@ -115,15 +136,18 @@
         </v-row>
         <v-divider class="mt-n5"></v-divider>
         <v-row class="mt-n4 ml-3">
-            <v-col cols="6" class="mr-n16 ml-12">
+            <v-col cols="6" class="mr-n16 ml-14">
                 <v-row class="ml-3">
                     <v-col cols="5">
                         <v-progress-linear
                             v-model="ch_value.ch5_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 5 <strong>{{ ch_raw.ch5_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 5 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch5_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                     <v-col cols="5">
@@ -131,8 +155,11 @@
                             v-model="ch_value.ch10_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 10 <strong>{{ ch_raw.ch10_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 10 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch10_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                 </v-row>
@@ -142,8 +169,11 @@
                             v-model="ch_value.ch6_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 6 <strong>{{ ch_raw.ch6_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 6 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch6_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                     <v-col cols="5">
@@ -151,8 +181,11 @@
                             v-model="ch_value.ch11_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 11 <strong>{{ ch_raw.ch11_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 11 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch11_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                 </v-row>
@@ -162,8 +195,11 @@
                             v-model="ch_value.ch7_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 7 <strong>{{ ch_raw.ch7_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 7 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch7_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                     <v-col cols="5">
@@ -171,8 +207,11 @@
                             v-model="ch_value.ch12_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 12 <strong>{{ ch_raw.ch12_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 12 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch12_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                 </v-row>
@@ -182,8 +221,11 @@
                             v-model="ch_value.ch8_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 8 <strong>{{ ch_raw.ch8_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 8 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch8_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                     <v-col cols="5">
@@ -191,8 +233,11 @@
                             v-model="ch_value.ch13_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 13 <strong>{{ ch_raw.ch13_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 13 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch13_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                 </v-row>
@@ -202,8 +247,11 @@
                             v-model="ch_value.ch9_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 9 <strong>{{ ch_raw.ch9_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 9 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch9_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                     <v-col cols="5">
@@ -211,21 +259,27 @@
                             v-model="ch_value.ch14_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 14 <strong>{{ ch_raw.ch14_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 14 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch14_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                 </v-row>
             </v-col>
-            <v-col cols="6" class="ml-n2">
+            <v-col cols="6" class="ml-n4">
                 <v-row class="ml-3">
                     <v-col cols="5">
                         <v-progress-linear
                             v-model="ch_value.ch20_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 20 <strong>{{ ch_raw.ch20_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 20 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch20_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                     <v-col cols="5">
@@ -233,8 +287,11 @@
                             v-model="ch_value.ch25_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 25 <strong>{{ ch_raw.ch25_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 25 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch25_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                 </v-row>
@@ -244,8 +301,11 @@
                             v-model="ch_value.ch21_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 21 <strong>{{ ch_raw.ch21_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 21 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch21_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                     <v-col cols="5">
@@ -253,8 +313,11 @@
                             v-model="ch_value.ch26_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 26 <strong>{{ ch_raw.ch26_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 26 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch26_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                 </v-row>
@@ -264,8 +327,11 @@
                             v-model="ch_value.ch22_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 22 <strong>{{ ch_raw.ch22_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 22 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch22_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                     <v-col cols="5">
@@ -273,8 +339,11 @@
                             v-model="ch_value.ch27_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 27 <strong>{{ ch_raw.ch27_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 27 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch27_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                 </v-row>
@@ -284,8 +353,11 @@
                             v-model="ch_value.ch23_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 23 <strong>{{ ch_raw.ch23_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 23 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch23_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                     <v-col cols="5">
@@ -293,8 +365,11 @@
                             v-model="ch_value.ch28_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 28 <strong>{{ ch_raw.ch28_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 28 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch28_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                 </v-row>
@@ -304,8 +379,11 @@
                             v-model="ch_value.ch24_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 24 <strong>{{ ch_raw.ch24_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 24 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch24_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                     <v-col cols="5">
@@ -313,8 +391,11 @@
                             v-model="ch_value.ch29_value"
                             height="40"
                             rounded
+                            color="#2688ECFF"
+                            background-color="#CCE5FFFF"
+                            style="box-shadow: 3px 3px 2px 1px rgba(101,101,101,0.66);"
                         >
-                            <span style="font-size: 23px">Radio 29 <strong>{{ ch_raw.ch29_raw }}</strong></span>
+                            <span style="font-size: 23px; text-shadow: 1px 1px rgba(101,101,101,0.66);">Radio 29 <strong style="text-shadow: -1px -1px rgba(101,101,101,0);">{{ ch_raw.ch29_raw }}</strong></span>
                         </v-progress-linear>
                     </v-col>
                 </v-row>
@@ -861,4 +942,7 @@ export default {
     transform: rotate(270deg);
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
 </style>

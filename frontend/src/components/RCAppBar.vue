@@ -124,6 +124,6 @@ export default {
 
 .bg {
     max-width: 101%;
-    background-image: linear-gradient(15deg, #0063a2 0%, #83cef3 90%);
+    background-image: linear-gradient(15deg, #1272d0 0%, #b9d4f0 90%);
 }
 </style>
