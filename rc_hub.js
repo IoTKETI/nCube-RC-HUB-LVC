@@ -6,6 +6,7 @@ const mqtt = require('mqtt');
 const {nanoid} = require('nanoid');
 const {SerialPort} = require("serialport");
 const fs = require("fs");
+const mavlink = require('./mavlibrary/mavlink.js');
 
 let rcPort = null;
 let rcPort_info = {
