@@ -52,7 +52,8 @@ function retrieve_approval(approval_info) {
 
     local_mqtt_connect('127.0.0.1');
 
-    rcPortOpening();
+    setTimeout(rcPortOpening, 10000);
+
     if (approval_info.simul.toLowerCase() === 'off') {
         console.log("====================================\n\t Using real drone \t\t\n====================================");
         rfPortOpening();
