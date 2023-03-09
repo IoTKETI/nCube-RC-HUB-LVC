@@ -198,8 +198,8 @@ function rcPortData(message) {
                         console.log("mavlink message is null");
                     } else {
                         if (local_mqtt_client !== null) {
-                            local_mqtt_client.publish('/Mobius/' + flight.gcs + '/Mission_Data/' + flight.drone_name, Buffer.from(RCData, 'hex'), () => {
-                                console.log('send to ', '/Mobius/' + flight.gcs + '/Mission_Data/' + flight.drone_name, RCData);
+                            local_mqtt_client.publish('/Mobius/' + flight.gcs + '/Mission_Data/' + flight.drone_name, mission_signal, () => {
+                                console.log('send to ', '/Mobius/' + flight.gcs + '/Mission_Data/' + flight.drone_name, mission_signal);
                             });
                         }
                     }
