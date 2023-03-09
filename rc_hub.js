@@ -162,9 +162,11 @@ function rcPortData(message) {
 
             if (flight.simul.toLowerCase() === 'off') {
                 // to real
-                rfPort.write(Buffer.from(RCData, 'hex'), () => {
-                    console.log('Send ' + RCData + ' to real drone');
-                });
+                if (rfPort !== null) {
+                    rfPort.write(Buffer.from(RCData, 'hex'), () => {
+                        console.log('Send ' + RCData + ' to real drone');
+                    });
+                }
             }
 
             RCstrFromGCS = RCstrFromGCS.substring(RC_LENGTH);
