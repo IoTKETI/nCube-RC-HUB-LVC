@@ -213,7 +213,9 @@ function rfPortError(error) {
 }
 
 function rfPortData(message) {
-    rcPort.write(message, () => {
-        // console.log('Send res to RC')
-    });
+    if (rcPort !== null) {
+        rcPort.write(message, () => {
+            // console.log('Send res to RC')
+        });
+    }
 }
