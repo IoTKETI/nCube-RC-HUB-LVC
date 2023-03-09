@@ -172,7 +172,7 @@ function rcPortData(message) {
                 }
 
                 let mission_value = {};
-                mission_value.target_system = my_sysid;
+                mission_value.target_system = flight.sysid;
                 mission_value.target_component = 1;
                 mission_value.ch1_raw = SBUS2RC(parseInt(RCData.substring(36, 38), 16));   // CH 18 - Tilt
                 mission_value.ch2_raw = SBUS2RC(parseInt(RCData.substring(34, 36), 16));   // CH 17 - Pan
