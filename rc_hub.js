@@ -6,7 +6,6 @@ const mqtt = require('mqtt');
 const {nanoid} = require('nanoid');
 const {SerialPort} = require("serialport");
 const fs = require("fs");
-const mavlink = require('./mavlibrary/mavlink.js');
 
 let rcPort = null;
 let rcPort_info = {
@@ -158,8 +157,8 @@ function rcPortData(message) {
             /*  send to local topic */
             // to Simul
             if (local_mqtt_client !== null) {
-                local_mqtt_client.publish('/Mobius/' + flight.gcs + '/Mission_Data/' + flight.drone_name, Buffer.from(RCData, 'hex'), () => {
-                    console.log('send Mission Data to ' + '/Mobius/' + flight.gcs + '/Mission_Data/' + flight.drone_name, RCData);
+                local_mqtt_client.publish(mobius_pub_rc_topic, Buffer.from(RCData, 'hex'), () => {
+                    // console.log(mobius_pub_rc_topic, RCData);
                 });
             }
 
@@ -172,13 +171,13 @@ function rcPortData(message) {
                 }
 
                 let mission_value = {};
-                mission_value.target_system = flight.sysid;
+                mission_value.target_system = my_sysid;
                 mission_value.target_component = 1;
                 mission_value.ch1_raw = SBUS2RC(parseInt(RCData.substring(36, 38), 16));   // CH 18 - Tilt
                 mission_value.ch2_raw = SBUS2RC(parseInt(RCData.substring(34, 36), 16));   // CH 17 - Pan
                 mission_value.ch3_raw = SBUS2RC(parseInt(RCData.substring(38, 40), 16));   // CH 19 - Zoom
                 mission_value.ch4_raw = SBUS2RC(parseInt(RCData.substring(54, 56), 16));   // CH 27 - Gun
-                // mission_value.ch4_raw = SBUS2RC(parseInt(RCData.substring(40, 42), 16));   // CH 20
+                // mission_value.ch4_raw = SBUS2RC(parseInt(rc_data.substring(40, 42), 16));   // CH 20
                 mission_value.ch5_raw = SBUS2RC(parseInt(RCData.substring(12, 14), 16));   // CH 6 - Drop
                 mission_value.ch6_raw = SBUS2RC(parseInt(RCData.substring(42, 44), 16));   // CH 21 - Camera direction
                 mission_value.ch7_raw = SBUS2RC(parseInt(RCData.substring(44, 46), 16));   // CH 22 - camera mode
@@ -198,13 +197,8 @@ function rcPortData(message) {
                         console.log("mavlink message is null");
                     } else {
                         if (local_mqtt_client !== null) {
-                            local_mqtt_client.publish(mobius_pub_rc_topic, Buffer.from(RCData, 'hex'), () => {
-                                // console.log(mobius_pub_rc_topic, RCData);
-                            });
-                        }
-                        if (rcPort !== null) {
-                            rcPort.write(mission_signal, () => {
-                                // console.log('write rcPort ' + mission_signal.toString('hex'));
+                            local_mqtt_client.publish('/Mobius/' + flight.gcs + '/Mission_Data/' + flight.drone_name, Buffer.from(RCData, 'hex'), () => {
+                                console.log('send to ', '/Mobius/' + flight.gcs + '/Mission_Data/' + flight.drone_name, RCData);
                             });
                         }
                     }
